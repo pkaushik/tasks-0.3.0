@@ -46,7 +46,7 @@ Router = Backbone.Router.extend({
   actionParamsPage: function(page, action, params) {
     var hashes = params.split('&'), params = {};
     _(hashes).each(function(hash) {
-      var h = hash.split(':');
+      var h = hash.split('=');
       params[h[0]] = h[1];
     });
     console.log("page=" + page + " action=" + action + " params=(see below)");

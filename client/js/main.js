@@ -82,6 +82,9 @@ Global = {
 
     // Is currently logged in user a manager
     Session.set('manager', false);
+    
+    // Filter for task list
+    Session.set('filter', null);
   }
 }
 

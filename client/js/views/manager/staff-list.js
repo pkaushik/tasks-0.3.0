@@ -1,25 +1,15 @@
 Template.managerStaffList.UNASSIGNED_TASK_COUNT = function() {
-  return Tasks.find({ assigned : { $exists : false } }).count();
+  return TaskCollection.getCountForUnassigned();
 }
 
 Template.managerStaffList.ASSIGNED_TASK_COUNTS = function() {
-  var employees = Users.find().fetch();
-  
-  _(employees).each(function(employee){
-    employee.COUNT = Tasks.find({ assigned : employee._id }).count();
+  var staffCollection = StaffCollection.fetch();
+  _(staffCollection).each(function(staff){
+    staff.COUNT = TaskCollection.getCountForStaff(staff._id); 
   });
-  
-  return employees;
+  return staffCollection;
 }
 
 Template.managerStaffList.render = function() {   
   $('#page').html(Meteor.ui.render(Template.managerStaffList));
-}
-
-Template.managerStaffList.events = {
-  'click a.staff-list-button': 
-    function(e) { 
-      debugger;    
-      //this.options.hub.trigger('list:status', { id: e.currentTarget.id });
-    }
 }

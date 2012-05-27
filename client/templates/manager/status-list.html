@@ -1,17 +1,17 @@
 <template name="managerStatusList">
   <ul class="nav nav-tabs nav-stacked">
       {{#if R_COUNT}}
-        <li><a class="status-list-button" id="r">Red <span class="label label-important"> {{R_COUNT}} </span></a></li>
+        <li><a href="#managerTaskList/filter?status=R">Red <span class="label label-important"> {{R_COUNT}} </span></a></li>
       {{else}}
         <li><a>Red <span class="label"> 0 </span></a></li>
       {{/if}}
       {{#if Y_COUNT}}
-        <li><a class="status-list-button" id="y">Yellow <span class="label label-warning"> {{Y_COUNT}} </span></a></li>
+        <li><a href="#managerTaskList/filter?status=Y">Yellow <span class="label label-warning"> {{Y_COUNT}} </span></a></li>
       {{else}}
         <li><a>Yellow <span class="label"> 0 </span></a></li>
       {{/if}}
       {{#if G_COUNT}}
-        <li><a class="status-list-button" id="g">Green <span class="label label-success"> {{G_COUNT}} </span></a></li>
+        <li><a href="#managerTaskList/filter?status=G">Green <span class="label label-success"> {{G_COUNT}} </span></a></li>
       {{else}}
         <li><a>Green <span class="label"> 0 </span></a></li>
       {{/if}}
