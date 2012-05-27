@@ -15,10 +15,6 @@ Router = Backbone.Router.extend({
     }
     return false;
   },
-  
-  // initialize: function() {
-  //   
-  // },
 
   routes: {
     ":page/:action?:params": "actionParamsPage",

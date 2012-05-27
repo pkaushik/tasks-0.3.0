@@ -1,13 +1,12 @@
 Template.login.events = {
-  'click #login-button': 
+  'click button#login-button': 
     function (e) { 
-      //e.preventDefault();
-      console.log('#login-button clicked');
+      e.preventDefault();
       Meteor.call('login', $('#login-username').val(), $('#login-password').val(), Global.loginCallback);
       return false;
     }
 }
 
 Template.login.render = function() {
-  $('#page').html(Template.login());
+  $('#page').html(Meteor.ui.render(Template.login));
 }

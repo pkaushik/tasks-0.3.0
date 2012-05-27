@@ -1,3 +1,16 @@
+Meteor.startup(function() { 
+  Global.initialize();
+  
+  Router = new Router();
+  Backbone.history.start();
+  
+  if (!Session.get('username') && SessionCookie.getKey()) {
+    console.log('Found session auth token. Calling sessionUser on server...');
+    Meteor.call('sessionUser', SessionCookie.getKey(), Global.sessionLoginCallback);
+  }
+});
+
+
 Global = {
   loginCallback: function(error, returnVal) {
     console.log(returnVal);
@@ -72,14 +85,3 @@ Global = {
 }
 
 
-Meteor.startup(function() { 
-  Global.initialize();
-  
-  Router = new Router();
-  Backbone.history.start();
-  
-  if (!Session.get('username') && SessionCookie.getKey()) {
-    console.log('calling sessionUser on server...');
-    Meteor.call('sessionUser', SessionCookie.getKey(), Global.sessionLoginCallback);
-  }
-});
