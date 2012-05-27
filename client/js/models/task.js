@@ -32,6 +32,10 @@ _TaskCollection.prototype.fetch = function() {
   return Tasks.find().fetch();
 }
 
+_TaskCollection.prototype.get = function(id) {
+  return Tasks.findOne({_id: id});
+}
+
 _TaskCollection.prototype.getTasksForStatus = function(color) {  
   return _(Tasks.find().fetch()).filter(function(task) {
     return task.status() === color ? task : false;

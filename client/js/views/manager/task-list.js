@@ -5,12 +5,11 @@ Template.managerTaskList.filter = function(params) {
 
 Template.managerTaskList.TASKS = function() {
   var filter = Session.get('filter');
-  return filter ? TaskCollection.filter(filter) : TaskCollection.fetch();
   Session.set('filter', null);
-  return this;
+  return filter ? TaskCollection.filter(filter) : TaskCollection.fetch();
 }
 
-Template.managerTaskList.STAFF_NAME = function(id) {
+Template.managerTaskList.ASSIGNED_NAME = function(id) {
   return id ? StaffCollection.getNameForId(id) : "Unassigned";
 }
 
