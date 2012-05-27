@@ -17,8 +17,9 @@ Template.managerStaffList.render = function() {
 }
 
 Template.managerStaffList.events = {
-  'click a.status-list-button': 
-    function(e) {     
+  'click a.staff-list-button': 
+    function(e) { 
+      debugger;    
       //this.options.hub.trigger('list:status', { id: e.currentTarget.id });
     }
 }

@@ -1,9 +1,9 @@
-BBEmployee = Backbone.Model.extend({
+EmployeeModel = Backbone.Model.extend({
   idAttribute: '_id'
 });
 
-BBEmployees = Backbone.Collection.extend({
-  model: BBEmployee,
+EmployeeCollection = Backbone.Collection.extend({
+  model: EmployeeModel,
   
   getIds: function() {
     return this.pluck('_id');

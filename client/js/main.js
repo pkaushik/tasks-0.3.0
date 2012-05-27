@@ -24,8 +24,6 @@ Global = {
   },
 
   sessionLoginCallback: function(error, returnVal) {
-    console.log('callback' + error);
-    console.log(returnVal);
     if(!error) {
       Global.setUser(returnVal);
     } else {
@@ -38,7 +36,10 @@ Global = {
     Session.set('name', args.name);
     Session.set('username', args.username);
     console.log('name and username set in session');
+    Model.register('Tasks', Task);
     Meteor.subscribe('Tasks', args.username);
+    
+    
 
     if (args.staff) {
       Session.set('manager', true);
@@ -74,7 +75,7 @@ Global = {
   
   initialize: function() {
     // Name of currently logged in user
-    Session.set('name', '');
+    Session.set('name', 'Log In');
 
     // Username of currently logged in user
     Session.set('username', null);
