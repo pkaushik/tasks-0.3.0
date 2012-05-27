@@ -80,6 +80,6 @@ Meteor.startup(function() {
   
   if (!Session.get('username') && SessionCookie.getKey()) {
     console.log('calling sessionUser on server...');
-    Meteor.call('sessionUser', SessionCookie.getKey(), Util.sessionLoginCallback);
+    Meteor.call('sessionUser', SessionCookie.getKey(), Global.sessionLoginCallback);
   }
 });
