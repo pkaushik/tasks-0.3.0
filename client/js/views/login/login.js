@@ -3,7 +3,7 @@ Template.login.events = {
     function (e) { 
       //e.preventDefault();
       console.log('#login-button clicked');
-      Meteor.call('login', $('#login-username').val(), $('#login-password').val(), Async.loginCallback);
+      Meteor.call('login', $('#login-username').val(), $('#login-password').val(), Global.loginCallback);
       return false;
     }
 }
