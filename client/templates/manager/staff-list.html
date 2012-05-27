@@ -1,0 +1,16 @@
+<template name="managerStaffList">
+  <ul class="nav nav-tabs nav-stacked">
+    {{#each ASSIGNED_TASK_COUNTS}}
+        <li>
+          <a class="staff-list-button" id="{{_id}}">{{name}}
+            <span class="label label-inverse"> {{COUNT}} </span>
+          </a>
+        </li>
+    {{/each}}
+    <li>
+      <a class="staff-list-button" id="unassigned">Unassigned 
+        <span class="label label-inverse"> {{UNASSIGNED_TASK_COUNT}} </span>
+      </a>
+    </li>
+  </ul>
+</template>
