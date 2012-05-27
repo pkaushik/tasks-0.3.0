@@ -5,7 +5,10 @@ Template.nav.USERNAME = function() {
 Template.nav.events =  {
   'click #logout-nav': 
     function(e) {
-      Meteor.call('logout', SessionCookie.getKey(), Global.logoutCallback);
+      console.log('hoho');
+      Meteor.call('logout', SessionCookie.getKey());
+      SessionCookie.updateKey(null);
+      Global.initialize();
       return true; // so that the href works
     }
 }

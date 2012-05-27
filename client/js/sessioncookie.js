@@ -4,6 +4,6 @@ SessionCookie = {
     return true;
   },
   getKey: function() {
-     return $.cookie("session_key");
+    return $.cookie("session_key");
   }
 };

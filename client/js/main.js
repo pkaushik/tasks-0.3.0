@@ -20,15 +20,6 @@ Global = {
       Global.errorHandler(error);
     }
   },
-  
-  logoutCallback: function(error, returnVal) {
-    if(!error) {
-      SessionCookie.updateKey(null);
-      Global.initialize();
-    } else {
-      Global.errorHandler(error);
-    }
-  },
 
   sessionLoginCallback: function(error, returnVal) {
     if(!error) {
@@ -46,15 +37,13 @@ Global = {
     Model.register('Tasks', Task);
     Meteor.subscribe('Tasks', args.username);
     
-    
-
     if (args.staff) {
       Session.set('manager', true);
       console.log('manager set in session');
       Meteor.subscribe('Users', args.username);
       Router.navigateTo('managerMenu');
     } else {
-      Router.navigateTo('tasks');
+      Router.navigateTo('staffTaskList');
     }
   },
     
@@ -92,6 +81,9 @@ Global = {
     
     // Filter for task list
     Session.set('filter', null);
+    
+    // Show task
+    Session.set('show', null);
   }
 }
 
