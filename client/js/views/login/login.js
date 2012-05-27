@@ -1,5 +1,5 @@
 Template.login.events = {
-  'click button#login-button': 
+  'click #login-button': 
     function (e) { 
       e.preventDefault();
       Meteor.call('login', $('#login-username').val(), $('#login-password').val(), Global.loginCallback);

@@ -12,12 +12,19 @@ Meteor.startup(function() {
 
 
 Global = {
-  loginCallback: function(error, returnVal) {
-    console.log(returnVal);
-    
+  loginCallback: function(error, returnVal) {    
     if(!error) {
       SessionCookie.updateKey(returnVal.auth);
       Global.setUser(returnVal);
+    } else {
+      Global.errorHandler(error);
+    }
+  },
+  
+  logoutCallback: function(error, returnVal) {
+    if(!error) {
+      SessionCookie.updateKey(null);
+      Global.initialize();
     } else {
       Global.errorHandler(error);
     }
@@ -27,7 +34,7 @@ Global = {
     if(!error) {
       Global.setUser(returnVal);
     } else {
-      SessionCookie.deleteKey();
+      SessionCookie.updateKey(null);
       Global.errorHandler(error);
     }
   },

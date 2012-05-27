@@ -5,8 +5,5 @@ SessionCookie = {
   },
   getKey: function() {
      return $.cookie("session_key");
-  },
-  deleteKey: function() {
-    $.cookie("session_key", null);
   }
 };

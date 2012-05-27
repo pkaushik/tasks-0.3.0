@@ -2,29 +2,27 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
+        {{#if USERNAME}}
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+        {{/if}}
         <a class="brand" href="/" >Task Manager</a>
 
         <div class="nav-collapse">
           <ul class="nav">
             {{#if USERNAME}}
               <li>
-                <a href="/user_area/options">Options</a>
+                <a>Options</a>
               </li>
               <li>
-                <a href="/user_area/settings">Settings</a>
+                <a>Settings</a>
               </li>
               <li>
-                <a href="/home/logout">Logout</a>
+                <a id='logout-nav' href='#login'>Logout</a>
               </li>  
-            {{else}}
-              <li>
-                <a href="/">Login</a>
-              </li>
             {{/if}}
           </ul>
         </div>
