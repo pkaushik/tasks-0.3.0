@@ -36,14 +36,13 @@ Global = {
     console.log('name and username set in session');
     Model.register('Tasks', Task);
     
-    TaskSubscription = Meteor.subscribe('Tasks', args.username);
-    
+    Meteor.subscribe('Tasks', args.username);
     
     if (args.staff) {
       Session.set('manager', true);
       console.log('manager set in session');
       
-      StaffSubscription = Meteor.subscribe('Users', args.username);
+      Meteor.subscribe('Users', args.username);
       
       Router.navigateTo('managerMenu');
     } else {
