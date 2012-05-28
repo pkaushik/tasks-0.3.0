@@ -4,7 +4,7 @@ Template.managerTaskDetail.show = function(params) {
 }
 
 Template.managerTaskDetail.NAME = function() {
-  return TaskCollection.get(Session.get('task_id')).name.toUpperCase();
+  return TaskCollection.get(Session.get('task_id')).name;
 }
 
 Template.managerTaskDetail.SUBTASKS = function() {

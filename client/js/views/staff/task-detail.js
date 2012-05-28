@@ -4,7 +4,7 @@ Template.staffTaskDetail.show = function(params) {
 }
 
 Template.staffTaskDetail.NAME = function() {
-  return TaskCollection.get(Session.get('task_id')).name.toUpperCase();
+  return TaskCollection.get(Session.get('task_id')).name;
 }
 
 Template.staffTaskDetail.TICK = function(color) {
@@ -15,7 +15,8 @@ Template.staffTaskDetail.SUBTASKS = function() {
   return TaskCollection.get(Session.get('task_id')).subtasks;
 }
 
-Template.staffTaskDetail.render = function() {   
+Template.staffTaskDetail.render = function() { 
+  console.log('render called...')  
   $('#page').html(Meteor.ui.render(Template.staffTaskDetail));
   return this;
 }
@@ -28,6 +29,7 @@ Template.staffTaskDetail.events = {
       var task_id = Session.get('task_id');
       var order = this.order;
       var subtasks = TaskCollection.get(task_id).subtasks;
+      
       console.log(e.target.id + " = e.target.id")
       console.log(order + " = order")
       

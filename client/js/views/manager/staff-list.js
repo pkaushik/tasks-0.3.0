@@ -10,6 +10,10 @@ Template.managerStaffList.ASSIGNED_TASK_COUNTS = function() {
   return staffCollection;
 }
 
+Template.managerStaffList.NAME = function() {
+  return Session.get('name');
+}
+
 Template.managerStaffList.render = function() {   
   $('#page').html(Meteor.ui.render(Template.managerStaffList));
 }

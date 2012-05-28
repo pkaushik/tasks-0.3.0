@@ -5,8 +5,8 @@ Template.nav.USERNAME = function() {
 Template.nav.events =  {
   'click #logout-nav': 
     function(e) {
-      TaskSubscription.stop();
-      StaffSubscription.stop();
+      // TaskSubscription.stop();
+      // StaffSubscription.stop();
       Meteor.call('logout', SessionCookie.getKey());
       SessionCookie.updateKey(null);
       Global.initialize();

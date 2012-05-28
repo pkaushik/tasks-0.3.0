@@ -10,6 +10,10 @@ Template.managerStatusList.G_COUNT = function() {
   return TaskCollection.getCountForStatus('G');
 }
 
+Template.managerStatusList.NAME = function() {
+  return Session.get('name');
+}
+
 Template.managerStatusList.render = function() {   
   $('#page').html(Meteor.ui.render(Template.managerStatusList));
 }
