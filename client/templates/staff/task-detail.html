@@ -1,0 +1,29 @@
+<template name="staffTaskDetail">
+  <h3>{{NAME}}</h3>
+  <hr/>
+  <ul class="nav nav-pills nav-stacked">
+    <li class="active">
+      <a>
+        <div class="row">
+          <div class="span6">Subtask</div>  
+          <div class="span1"></div>
+          <div class="span1"></div>
+          <div class="span1"></div>
+        </div>
+      </a>
+    </li>
+    
+    {{#each SUBTASKS}}
+      <li class="subtask-row">
+        <a>
+          <div class="row">
+            <div class="span6">{{name}}</div> 
+            <div class="span1"><span id="G" class="btn btn-success btn-tick">{{TICK "G"}}</span></div>
+            <div class="span1"><span id="Y" class="btn btn-warning btn-tick">{{TICK "Y"}}</span></div>
+            <div class="span1"><span id="R" class="btn btn-danger btn-tick">{{TICK "R"}}</span></div>
+          </div>
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</template>

@@ -35,12 +35,16 @@ Global = {
     Session.set('username', args.username);
     console.log('name and username set in session');
     Model.register('Tasks', Task);
-    Meteor.subscribe('Tasks', args.username);
+    
+    TaskSubscription = Meteor.subscribe('Tasks', args.username);
+    
     
     if (args.staff) {
       Session.set('manager', true);
       console.log('manager set in session');
-      Meteor.subscribe('Users', args.username);
+      
+      StaffSubscription = Meteor.subscribe('Users', args.username);
+      
       Router.navigateTo('managerMenu');
     } else {
       Router.navigateTo('staffTaskList');
@@ -83,7 +87,7 @@ Global = {
     Session.set('filter', null);
     
     // Show task
-    Session.set('show', null);
+    Session.set('task_id', null);
   }
 }
 
